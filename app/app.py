@@ -1,12 +1,11 @@
 from typing import Optional
-
+import os
 from flask import Flask, request, jsonify
-
+from dotenv import load_dotenv
 from prisma import Client  # Import Prisma Client
 
-
 # Initialize Prisma Client with connection string from environment variable
-prisma = Client(env("DATABASE_URL"))
+prisma = Client("postgresql://Econibledb_owner:bKvV3s9MUhHj@ep-twilight-mode-a2ossjfb-pooler.eu-central-1.aws.neon.tech/Econibledb?sslmode=require")
 
 app = Flask(__name__)
 
