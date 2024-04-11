@@ -1,3 +1,28 @@
 node_modules
 # Keep environment variables out of version control
 .env
+
+# Virtual Environment
+venv/
+
+# Build Artifacts (if applicable)
+*.pyc
+
+# Package Manager Lockfiles
+requirements.lock
+
+# IDE/Editor Config
+.idea/
+settings.json
+
+# Logs
+*.log
+
+# NeonDB (consider if using locally)
+.neon/  # Neon development files (if applicable)
+
+# Test Data (if applicable)
+test_data/
+
+# Temporary Files
+*.tmp
