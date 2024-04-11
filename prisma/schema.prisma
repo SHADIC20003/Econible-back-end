@@ -13,3 +13,45 @@ url = env("DATABASE_URL")
 // directUrl = env("DATABASE_URL_UNPOOLED")
 }
 
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  name      String
+  createdAt DateTime @default(now())
+  expenses Expense[] // One-to-Many relationship with Expenses
+  goals Goal[] // One-to-Many relationship with Goals
+  notifications Notification[]
+}
+
+model Expense {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  category    String
+  priority    String
+  amount      Float
+  date        DateTime
+  description String?
+  createdAt   DateTime @default(now())
+  user User @relation(fields:[userId], references: [id]) // Many-to-One relationship with User
+}
+
+model Goal {  # Optional table for financial goals
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  title       String
+  targetAmount  Float
+  dueDate     DateTime?
+  createdAt   DateTime @default(now())
+  user User @relation(fields: [userId], references: [id]) // Many-to-One relationship with User
+}
+
+model Notification {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  title       String
+  message     String
+  isRead      Boolean  @default(false)  // Flag to indicate if the notification is read
+  createdAt   DateTime @default(now())
+  user        User   @relation(fields: [userId], references: [id])  // Many-to-One relationship with User
+}
