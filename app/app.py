@@ -3,6 +3,15 @@ import os
 from flask import Flask, request, jsonify
 from dotenv import load_dotenv
 from prisma import Client  # Import Prisma Client
+# -------------------------------------------------------#
+#                       TO DO:                           #
+# 1 - Connect User acc from database                     #
+# 2 - Write login and signup code                        # 
+# 3 - Handle verification and authentication             # 
+# 4 - Test it                                            # 
+# -------------------------------------------------------# 
+
+
 
 # Initialize Prisma Client with connection string from environment variable
 prisma = Client("postgresql://Econibledb_owner:bKvV3s9MUhHj@ep-twilight-mode-a2ossjfb-pooler.eu-central-1.aws.neon.tech/Econibledb?sslmode=require")
